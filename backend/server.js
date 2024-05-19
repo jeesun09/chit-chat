@@ -2,7 +2,12 @@ const express = require('express')
 const dotenv = require('dotenv')
 const cors = require("cors");
 const chats = require("./data/data.js");
+const connectDB = require('./config/db.js');
+const colors = require('colors');
 dotenv.config()
+//mongodb connection
+connectDB();
+
 const app = express();
 const PORT = process.env.PORT || 3000
 
@@ -17,6 +22,6 @@ app.get('/api/chat', (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`)
+  console.log(`Server is Running 🏃`.red.bold)
 })
 
